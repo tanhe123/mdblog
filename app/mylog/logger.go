@@ -119,11 +119,11 @@ func (lw *LogWriter) setWriter() {
 
 // GetFileFullName 获取日志文件的名称
 func (lw *LogWriter) GetFileFullName() string {
-	return path.Join(root, cfg.Log.Dir, lw.fileName)
+	return path.Join(cfg.Log.Dir, lw.fileName)
 }
 
 func (lw *LogWriter) newFile() *os.File {
-	dir := path.Join(root, cfg.Log.Dir)
+	dir := cfg.Log.Dir
 	fileStat, err := os.Stat(dir)
 
 	if err != nil {
